@@ -1,11 +1,13 @@
-all: txtfind
-	clear
+CC = gcc
+CFLAGS = -Wall -Wextra -fPIC
+
+all: txtfind isort
 
 isort: isort.o
-	gcc -o isort isort.o
+	$(CC) $(CFLAGS) -o isort isort.o
 
 txtfind: txtfind.o
-	gcc -o txtfind txtfind.o
+	$(CC) $(CFLAGS) -o txtfind txtfind.o
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
