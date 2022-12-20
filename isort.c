@@ -1,12 +1,15 @@
 #include <stdio.h>
+
+#define SIZE 100
+
 int *find_place(int* arr,int *pos); // find the place to insert the number
 
 void print_array(int* arr, int len){
     int* p = arr;
     int* r = arr + len;
+    printf("%d", *p++);
     while (p != r){
-        printf("%d ", *p);
-        p++;
+        printf(",%d", *p++);
     }
     printf("\n");
 };
@@ -31,7 +34,7 @@ void insertion_sort(int* arr , int len){
             int num = *q;
             shift_element(place, q - place);
             *place = num;
-            print_array(arr, len);
+           // print_array(arr, len);
         }
         
         p++;
@@ -42,18 +45,33 @@ void insertion_sort(int* arr , int len){
 int *find_place(int* arr,int *pos){
     int *p = pos;
     int num = *p;
-    while(p != arr && *p >= num){
+    while(p >= arr && *p >= num){
         p--;
     }
-    if(p != arr)
-        p++;
-    return p;
+    return p + 1;
 };
 
+int get_arr(int *arr){
+    int *p = arr;
+    int *q = arr + SIZE;
+    int num;
+    int i = 0;
+    while (p != q && scanf("%d", &num) == 1){
+        *p = num;
+        i++;
+        p++;
+    }
+    return i;
+};
+
+
+
+
 int main(){
-    int arr[15] = {10,9,8,7,6,5,4,3,2,1,0,11,12,13,14};
-    print_array(arr, 15);
-    insertion_sort(arr, 15);
+    int arr[SIZE] = {0};
+    int len = get_arr(arr);
+    insertion_sort(arr, len);
+    print_array(arr, len);
     return 0;
 };
 

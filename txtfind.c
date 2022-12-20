@@ -21,10 +21,8 @@ int main()
 
     char f = getchar();
     if(f == 'a'){
-        printf("Print lines function:\n");
         print_lines(word);
     }else if (f == 'b'){
-        printf("Print similar words function:\n");
         print_similar_words(word);
     }
     return 0;
@@ -35,7 +33,6 @@ void print_similar_words(char *str){
         char word[WORD] = {0};
         int length = getword(word);
         if(length >= (int)strlen(str) && similar(word,str,1)){
-            printf("Similar word: ");
             print(word,length); 
         } 
         bzero(word,WORD);
@@ -112,7 +109,7 @@ int getword(char w[])
     char *p = w;
     int charCount = 0;
     char c;
-    while (charCount < WORD && (c = getchar()) != '\n' && c != '\t' && c != ' ')
+    while (charCount < WORD - 1 && (c = getchar()) != '\n' && c != '\t' && c != ' ')
     { // getting word char by char
         *p = c;
         p++;
