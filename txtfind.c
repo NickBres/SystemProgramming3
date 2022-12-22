@@ -120,11 +120,8 @@ int getword(char w[])
     char c;
     while (charCount < WORD && (c = getchar()) != '\n' && c != '\t' && c != ' ')
     { // getting word char by char
-        if (c != '^M')
-        {
-            *p++ = c;
-            charCount++;
-        }
+        *p++ = c;
+        charCount++;
     }
     return charCount;
 };
@@ -136,11 +133,8 @@ int getLine(char s[])
     char c;
     while (charCount < LINE && (c = getchar()) != '\n')
     { // getting line char by char
-        if (c != '^M')
-        {
-            *p++ = c;
-            charCount++;
-        }
+        *p++ = c;
+        charCount++;
     }
     return charCount;
 };
