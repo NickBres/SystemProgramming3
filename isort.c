@@ -3,6 +3,18 @@
 #define SIZE 100
 
 int *find_place(int* arr,int *pos); // find the place to insert the number
+void insertion_sort(int* arr , int len); // sort the array
+int get_arr(int *arr); // get the array from the user
+void print_array(int* arr, int len); // print the array
+void shift_element(int* arr, int i); // shift the array
+
+int main(){
+    int arr[SIZE] = {0};
+    int len = get_arr(arr);
+    insertion_sort(arr, len);
+    print_array(arr, len);
+    return 0;
+};
 
 void print_array(int* arr, int len){
     int* p = arr;
@@ -64,14 +76,4 @@ int get_arr(int *arr){
     return i;
 };
 
-
-
-
-int main(){
-    int arr[SIZE] = {0};
-    int len = get_arr(arr);
-    insertion_sort(arr, len);
-    print_array(arr, len);
-    return 0;
-};
 
