@@ -15,9 +15,7 @@ void print(char *arr, int len);
 int main()
 {
     char word[WORD] = {0};
-    int wordSize = getword(word);
-    printf("Word : ");
-    print(word,wordSize);
+    getword(word);
 
     char f = getchar();
     if(f == 'a'){
@@ -29,9 +27,10 @@ int main()
 };
 
 void print_similar_words(char *str){
-    while(1){
+    int length = 2;
+    while(length < WORD){
         char word[WORD] = {0};
-        int length = getword(word);
+        length = getword(word);
         if(length >= (int)strlen(str) && similar(word,str,1)){
             print(word,length); 
         } 
@@ -40,9 +39,10 @@ void print_similar_words(char *str){
 }
 
 void print_lines(char *str){
-    while(1){
+    int length = 2;
+    while(length < LINE){
         char line[LINE] = {0};
-        int length = getLine(line);
+        length = getLine(line);
         if(substring(line,str)){
             print(line,length); 
         } 
