@@ -18,35 +18,44 @@ int main()
     getword(word);
 
     char f = getchar();
-    if(f == 'a'){
+    if (f == 'a')
+    {
         print_lines(word);
-    }else if (f == 'b'){
+    }
+    else if (f == 'b')
+    {
         print_similar_words(word);
     }
     return 0;
 };
 
-void print_similar_words(char *str){
+void print_similar_words(char *str)
+{
     int length = 2;
-    while(length < WORD){
+    while (length < WORD)
+    {
         char word[WORD] = {0};
         length = getword(word);
-        if(length >= (int)strlen(str) && similar(word,str,1)){
-            print(word,length); 
-        } 
-        bzero(word,WORD);
+        if (length >= (int)strlen(str) && similar(word, str, 1))
+        {
+            print(word, length);
+        }
+        bzero(word, WORD);
     }
 }
 
-void print_lines(char *str){
+void print_lines(char *str)
+{
     int length = 2;
-    while(length < LINE){
+    while (length < LINE)
+    {
         char line[LINE] = {0};
         length = getLine(line);
-        if(substring(line,str)){
-            print(line,length); 
-        } 
-        bzero(line,LINE);
+        if (substring(line, str))
+        {
+            print(line, length);
+        }
+        bzero(line, LINE);
     }
 }
 
@@ -83,9 +92,9 @@ int substring(char *str1, char *str2)
 
     while (p != r)
     {
-        
+
         if (*p == *q)
-        {  
+        {
             q++;
             p++;
         }
@@ -111,9 +120,11 @@ int getword(char w[])
     char c;
     while (charCount < WORD && (c = getchar()) != '\n' && c != '\t' && c != ' ')
     { // getting word char by char
-        *p = c;
-        p++;
-        charCount++;
+        if (c != '^M')
+        {
+            *p++ = c;
+            charCount++;
+        }
     }
     return charCount;
 };
@@ -125,8 +136,11 @@ int getLine(char s[])
     char c;
     while (charCount < LINE && (c = getchar()) != '\n')
     { // getting line char by char
-        *p++ = c;
-        charCount++;
+        if (c != '^M')
+        {
+            *p++ = c;
+            charCount++;
+        }
     }
     return charCount;
 };

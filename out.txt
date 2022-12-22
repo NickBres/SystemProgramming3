@@ -1,0 +1,3 @@
+looking for the word cat
+the program should print also cats
+and crat and lcat but it shouldn't
