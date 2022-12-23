@@ -4,10 +4,10 @@ CFLAGS = -Wall -Wextra -fPIC
 all: txtfind isort
 
 isort: isort.o
-	$(CC) $(CFLAGS) -o isort isort.o
+	$(CC) $(CFLAGS) -o $@ $^
 
 txtfind: txtfind.o
-	$(CC) $(CFLAGS) -o txtfind txtfind.o
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
