@@ -31,8 +31,8 @@ int main()
 
 void print_similar_words(char *str)
 {
-    int length = 2;
-    while (length < WORD)
+    int length = 1;
+    while (length < WORD - 1)
     {
         char word[WORD] = {0};
         length = getword(word);
@@ -40,14 +40,13 @@ void print_similar_words(char *str)
         {
             print(word, length);
         }
-        bzero(word, WORD);
     }
 }
 
 void print_lines(char *str)
 {
-    int length = 2;
-    while (length < LINE)
+    int length = 1;
+    while (length < LINE - 1)
     {
         char line[LINE] = {0};
         length = getLine(line);
@@ -55,7 +54,6 @@ void print_lines(char *str)
         {
             print(line, length);
         }
-        bzero(line, LINE);
     }
 }
 
@@ -118,7 +116,7 @@ int getword(char w[])
     char *p = w;
     int charCount = 0;
     char c;
-    while (charCount < WORD && (c = getchar()) != '\n' && c != '\t' && c != ' ')
+    while (charCount < WORD - 1 && (c = getchar()) != '\n' && c != '\t' && c != ' ')
     { // getting word char by char
         *p++ = c;
         charCount++;
@@ -131,7 +129,7 @@ int getLine(char s[])
     char *p = s;
     int charCount = 0;
     char c;
-    while (charCount < LINE && (c = getchar()) != '\n')
+    while (charCount < LINE - 1 && (c = getchar()) != '\n')
     { // getting line char by char
         *p++ = c;
         charCount++;
