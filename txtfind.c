@@ -129,8 +129,8 @@ int getLine(char s[])
     char *p = s;
     int charCount = 0;
     char c;
-    while (charCount < LINE - 1 && (c = getchar()) != '\n' && c != '\r') // get char by char until new line. keep the last char for \0
-    {                                                       // getting line char by char
+    while (charCount < LINE - 1 && (c = getchar()) != '\r' && c != '\n') // get char by char until new line. keep the last char for \0
+    {                                                                    // getting line char by char
         *p++ = c;
         charCount++;
     }
